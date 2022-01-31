@@ -15,7 +15,7 @@ Built with:
 1. Install mysql or mariadb
 2. In root folder:
    ```shell
-   > mysql -u root -p <createStatements.js
+   > mysql -u root -p <createStatements.sql
    ```
 
 ### In root folder: `node ./createStatements.js`

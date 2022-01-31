@@ -28,10 +28,26 @@ async function testA(){
         console.log(`${person.firstname}: ${person.salary} euros`);
     }
 
-    console.log('########## TEST 2 ##########')
+    console.log('\n########## TEST 2 ##########')
     result = await connection.query('select firstname, lastname from employee where employeeId=?', [1]);// the ? is a placeholder. The data comes from the second paramenter, in this case, the array [1]
     delete result.meta;
     console.log(result);
+
+    // console.log('\n######## test 3 insert ########');
+    // result = await connection.query('insert into employee values(?,?,?,?,?)', [3   ,'Gandalf','The Grey','Wizard', 9999]);
+
+    // console.log(result);
+
+    console.log('\n#### test 4 delete ####');
+    result = await connection.query('delete from employee where employeeId =?',[4]);
+
+    console.log(result);
+
+    console.log('\n#### test 5 UPDATE ####');
+    result = await connection.query('update employee set department=?, salary=? where employeeId=?',['finance',7000,1]);
+    console.log(result);
+
+
 
     connection.end();
 };
